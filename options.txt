@@ -1,0 +1,266 @@
+['All categories',
+'Accommodation',
+'Accounting',
+'Acupuncture',
+'Advertising Agencies',
+'Agricultural Services',
+'Air Conditioning / Refrigeration',
+'Alternative Healthcare and Treatments',
+'Animals & Pets',
+'Antiques',
+'Archaeologists',
+'Architectural Services',
+'Arts and Crafts',
+'Assessors and Adjusters',
+'Auctioneers and Property Management',
+'Automotive',
+'Aviation',
+'Bar and Restaurants',
+'Beauty Salons and Salon Supplies',
+'Boilers Servicing and Repairs',
+'Book Publishers and Printers',
+'Bookshops',
+'Breads and Cakes',
+'Building and Construction',
+'Business Services',
+'Chemicals',
+'Childcare and Children',
+'Chiropodists',
+'Chiropractors',
+'Cleaning and Hygiene',
+'Clinics and Treatments',
+'Community and Social',
+'Computers and Internet',
+'Consultancy',
+'Consumer Goods',
+'Convalescent Homes',
+'Corporate Entertainment and Music Supplies and Hospitality',
+'Counselling',
+'Couriers and Freight Forwarding',
+'Craft Centres and Shops',
+'Creches',
+'Data Services',
+'Delicatessens',
+'Dentists and Dental Equipment',
+'Development Agencies',
+'Digital Cameras and Camcorders',
+'Digital Services',
+'Doctors',
+'Doors and Windows',
+'Drain and Sewer Cleaning and Hygiene',
+'Dressmakers',
+'Drinks Distributor',
+'Driving Instructors',
+'Dry Cleaners and Laundries',
+'Education & Colleges',
+'Electrical and Electronics',
+'Engineering',
+'Entertainment and Music Supplies',
+'Film Production Services and Studios',
+'Financial Services',
+'Florists',
+'Food and Drink',
+'Funeral Directors',
+'Furniture and Household',
+'Garden Centres and Nurseries',
+'Gas Companies',
+'Genealogists',
+'Glazing',
+'Golf Courses and Clubs',
+'Graphic Designers',
+'Hairdressing & Barbers',
+'Hardware , Software, ICT',
+'Health & Safety',
+'Healthcare, Medical Services and Supplies',
+'Hire - Repair and Sales',
+'Household - Bedroom and Bathroom',
+'ICT, Hardware , Software',
+'Insulation Contractors',
+'Insurance',
+'Jewellers and Equipment',
+'Landscape Design and Contractors',
+'Libraries',
+'Local Goverment and Authorities',
+'Locksmiths',
+'Machinery and Equipment',
+'Manufacturing',
+'Marine Services, Retail and Online Sales',
+'Marketing Consultancy',
+'Media and Entertainment',
+'Media, Entertainment and Music Supplies',
+'Medical Services and Supplies',
+'Menswear',
+'Miscellaneous - TBC',
+'Mobile Phone and Communications',
+'Mobility Equipment',
+'Off Licence',
+'Off License',
+'Office',
+'Opticans Service and Supplies',
+'Outsourced Business Management',
+'Pharmaceuticals',
+'Pharmacy/Chemists',
+'Photography',
+'Physiotherapists',
+'Printers',
+'Printing',
+'Property and Building Maintenance',
+'Recruitment and Jobs',
+'Recycling',
+'Religious Organisations',
+'Retail and Online Sales',
+'Retail and Online Sales Supplies',
+'Security',
+'Services',
+'Software - ICT',
+'Solar Energy Equipment',
+'Solicitors',
+'Solicitors, Lawyers and Legal Advisors',
+'Sports, Health and Leisure',
+'Stud/Equestrian Centre',
+'Taxis',
+'Tourism',
+'Trade Unions',
+'Training and Education',
+'Transport',
+'Travel Services and Tourism',
+'Vending Sales & Service',
+'Vets',
+'Waste Services',
+'Water Services',
+'Web Design',
+Wedding Services,
+'Wholesale Supplies']
+<option value="All categories" >
+<option value="Accommodation" >
+<option value="Accounting" >
+<option value="Acupuncture" >
+<option value="Advertising Agencies" >
+<option value="Agricultural Services" >
+<option value="Air Conditioning / Refrigeration" >
+<option value="Alternative Healthcare and Treatments" >
+<option value="Animals & Pets" >
+<option value="Antiques" >
+<option value="Archaeologists" >
+<option value="Architectural Services" >
+<option value="Arts and Crafts" >
+<option value="Assessors and Adjusters" >
+<option value="Auctioneers and Property Management" >
+<option value="Automotive" >
+<option value="Aviation" >
+<option value="Bar and Restaurants" >
+<option value="Beauty Salons and Salon Supplies" >
+<option value="Boilers Servicing and Repairs" >
+<option value="Book Publishers and Printers" >
+<option value="Bookshops" >
+<option value="Breads and Cakes" >
+<option value="Building and Construction" >
+<option value="Business Services" >
+<option value="Chemicals" >
+<option value="Childcare and Children" >
+<option value="Chiropodists" >
+<option value="Chiropractors" >
+<option value="Cleaning and Hygiene" >
+<option value="Clinics and Treatments" >
+<option value="Community and Social" >
+<option value="Computers and Internet" >
+<option value="Consultancy" >
+<option value="Consumer Goods" >
+<option value="Convalescent Homes" >
+<option value="Corporate Entertainment and Music Supplies and Hospitality" >
+<option value="Counselling" >
+<option value="Couriers and Freight Forwarding" >
+<option value="Craft Centres and Shops" >
+<option value="Creches" >
+<option value="Data Services" >
+<option value="Delicatessens" >
+<option value="Dentists and Dental Equipment" >
+<option value="Development Agencies" >
+<option value="Digital Cameras and Camcorders" >
+<option value="Digital Services" >
+<option value="Doctors" >
+<option value="Doors and Windows" >
+<option value="Drain and Sewer Cleaning and Hygiene" >
+<option value="Dressmakers" >
+<option value="Drinks Distributor" >
+<option value="Driving Instructors" >
+<option value="Dry Cleaners and Laundries" >
+<option value="Education & Colleges" >
+<option value="Electrical and Electronics" >
+<option value="Engineering" >
+<option value="Entertainment and Music Supplies" >
+<option value="Film Production Services and Studios" >
+<option value="Financial Services" >
+<option value="Florists" >
+<option value="Food and Drink" >
+<option value="Funeral Directors" >
+<option value="Furniture and Household" >
+<option value="Garden Centres and Nurseries" >
+<option value="Gas Companies" >
+<option value="Genealogists" >
+<option value="Glazing" >
+<option value="Golf Courses and Clubs" >
+<option value="Graphic Designers" >
+<option value="Hairdressing & Barbers" >
+<option value="Hardware , Software, ICT" >
+<option value="Health & Safety" >
+<option value="Healthcare, Medical Services and Supplies" >
+<option value="Hire - Repair and Sales" >
+<option value="Household - Bedroom and Bathroom" >
+<option value="ICT, Hardware , Software" >
+<option value="Insulation Contractors" >
+<option value="Insurance" >
+<option value="Jewellers and Equipment" >
+<option value="Landscape Design and Contractors" >
+<option value="Libraries" >
+<option value="Local Goverment and Authorities" >
+<option value="Locksmiths" >
+<option value="Machinery and Equipment" >
+<option value="Manufacturing" >
+<option value="Marine Services, Retail and Online Sales" >
+<option value="Marketing Consultancy" >
+<option value="Media and Entertainment" >
+<option value="Media, Entertainment and Music Supplies" >
+<option value="Medical Services and Supplies" >
+<option value="Menswear" >
+<option value="Miscellaneous - TBC" >
+<option value="Mobile Phone and Communications" >
+<option value="Mobility Equipment" >
+<option value="Off Licence" >
+<option value="Off License" >
+<option value="Office" >
+<option value="Opticans Service and Supplies" >
+<option value="Outsourced Business Management" >
+<option value="Pharmaceuticals" >
+<option value="Pharmacy/Chemists" >
+<option value="Photography" >
+<option value="Physiotherapists" >
+<option value="Printers" >
+<option value="Printing" >
+<option value="Property and Building Maintenance" >
+<option value="Recruitment and Jobs" >
+<option value="Recycling" >
+<option value="Religious Organisations" >
+<option value="Retail and Online Sales" >
+<option value="Retail and Online Sales Supplies" >
+<option value="Security" >
+<option value="Services" >
+<option value="Software - ICT" >
+<option value="Solar Energy Equipment" >
+<option value="Solicitors" >
+<option value="Solicitors, Lawyers and Legal Advisors" >
+<option value="Sports, Health and Leisure" >
+<option value="Stud/Equestrian Centre" >
+<option value="Taxis" >
+<option value="Tourism" >
+<option value="Trade Unions" >
+<option value="Training and Education" >
+<option value="Transport" >
+<option value="Travel Services and Tourism" >
+<option value="Vending Sales & Service" >
+<option value="Vets" >
+<option value="Waste Services" >
+<option value="Water Services" >
+<option value="Web Design" >
+<option value="Wedding Services" >
+<option value="Wholesale Supplies" >
