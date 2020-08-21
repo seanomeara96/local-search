@@ -2,10 +2,10 @@
 import { addFollow, removeFollow } from "../controllers/follow-controller";
 import { mustBeLoggedIn } from "../controllers/user-controller";
 
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-router.post("/follow/:businessId", mustBeLoggedIn, addFollow);
-router.delete("/follow/:businessId", mustBeLoggedIn, removeFollow);
+router.post("/follow/:businessId/create", mustBeLoggedIn, addFollow);
+router.post("/follow/:businessId/delete", mustBeLoggedIn, removeFollow);
 
-module.exports = router;
+export default router;

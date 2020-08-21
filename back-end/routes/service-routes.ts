@@ -1,35 +1,40 @@
 // Service related routes
-const serviceController = require("../controllers/serviceController");
-const businessController = require("../controllers/businessController");
-const express = require("express");
+import {
+  createService,
+  updateService,
+  deleteService,
+  viewAllServices,
+  viewSingleService,
+} from "../controllers/service-controller";
+import {
+  isBusinessAdmin,
+  isResourceOwner,
+} from "../controllers/business-controller";
+import express from "express";
 const router = express.Router();
 // Administrative
 
 // Add a service
-router.post(
-  "/service",
-  businessController.isBusinessAdmin,
-  serviceController.create
-);
+router.post("/service", isBusinessAdmin, createService);
 
 // Update a service
-router.patch(
-  "/service/:serviceId",
-  businessController.isBusinessAdmin,
-  businessController.isResourceOwner,
-  serviceController.update
+router.post(
+  "/service/:serviceId/update",
+  isBusinessAdmin,
+  isResourceOwner,
+  updateService
 );
 
 // Delete a service
-router.delete(
-  "/service/:serviceId",
-  businessController.isBusinessAdmin,
-  businessController.isResourceOwner,
-  serviceController.delete
+router.post(
+  "/service/:serviceId/delete",
+  isBusinessAdmin,
+  isResourceOwner,
+  deleteService
 );
 
 // Non-Administrative
-router.get("/:businessId/services", serviceController.viewAll);
-router.get("/:businessId/service/:serviceId", serviceController.viewSingle)
+router.get("/:businessId/services", viewAllServices);
+router.get("/:businessId/service/:serviceId", viewSingleService);
 
-module.exports = router;
+export default router;

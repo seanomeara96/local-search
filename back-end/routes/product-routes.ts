@@ -1,35 +1,41 @@
 // Product related routes
-const productController = require("../controllers/productController");
-const businessController = require("../controllers/businessController");
-const express = require("express");
+import {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  viewAllProducts,
+  viewSingleProduct,
+} from "../controllers/product-controller";
+import {
+  isBusinessAdmin,
+  isResourceOwner,
+} from "../controllers/business-controller";
+
+import express from "express";
 const router = express.Router();
 // Administrative
 
 // Add a product
-router.post(
-  "/product",
-  businessController.isBusinessAdmin,
-  productController.create
-);
+router.post("/product", isBusinessAdmin, createProduct);
 
 // Update a product
-router.patch(
-  "/product/:productId",
-  businessController.isBusinessAdmin,
-  businessController.isResourceOwner,
-  productController.update
+router.post(
+  "/product/:productId/update",
+  isBusinessAdmin,
+  isResourceOwner,
+  updateProduct
 );
 
 // Delete a product
-router.delete(
-  "/product/:productId",
-  businessController.isBusinessAdmin,
-  businessController.isResourceOwner,
-  productController.delete
+router.post(
+  "/product/:productId/delete",
+  isBusinessAdmin,
+  isResourceOwner,
+  deleteProduct
 );
 
 // Non-Administrative
-router.get("/:businessId/products", productController.viewAll);
-router.get("/:businessId/product/:productId", productController.viewSingle);
+router.get("/:businessId/products", viewAllProducts);
+router.get("/:businessId/product/:productId", viewSingleProduct);
 
-module.exports = router;
+export default router;
