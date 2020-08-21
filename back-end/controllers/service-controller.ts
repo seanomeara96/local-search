@@ -1,21 +1,21 @@
-const Service = require("../models/Service.js");
+import Service from "../models/Service.js";
+import { Request, Response } from "express";
 
 // Adds service to the database
-exports.create = function (req, res) {
-    console.log("create single service")
+export const createService = function (req: Request, res: Response) {
+  console.log("create single service");
 };
-exports.update = function (req, res) {
-    console.log("update service")
-}
-exports.delete = function (req, res) {
-    console.log("delete service")
-}
+export const updateService = function (req: Request, res: Response) {
+  console.log("update service");
+};
+export const deleteService = function (req: Request, res: Response) {
+  console.log("delete service");
+};
 // fetch all services related to a specific business
-exports.viewAll = function (req, res) {
-    console.log("view all of a business")
-}
-// Gets service for single product
-exports.viewSingle = function (req, res) {
-  console.log("view single service")
+export const viewAllServices = function (req: Request, res: Response) {
+  console.log("view all of a business");
 };
-
+// Gets service for single product
+export const viewSingleService = function (req: Request, res: Response) {
+  console.log("view single service");
+};

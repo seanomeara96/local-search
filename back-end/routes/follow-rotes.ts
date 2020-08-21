@@ -1,16 +1,11 @@
-const followController = require("../controllers/followController");
-const userController = require("../controllers/userController");
+//Follow related routes
+import { addFollow, removeFollow } from "../controllers/follow-controller";
+import { mustBeLoggedIn } from "../controllers/user-controller";
+
 const express = require("express");
 const router = express.Router();
-//Follow related routes
-router.post(
-  "/follow/:businessId",
-  userController.mustBeLoggedIn,
-  followController.addFollow
-);
-router.delete(
-  "/follow/:businessId",
-  userController.mustBeLoggedIn,
-  followController.removeFollow
-);
+
+router.post("/follow/:businessId", mustBeLoggedIn, addFollow);
+router.delete("/follow/:businessId", mustBeLoggedIn, removeFollow);
+
 module.exports = router;

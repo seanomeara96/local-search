@@ -1,13 +1,15 @@
-const userRoutes = require("./routes/userRoutes");
-const businessRoutes = require("./routes/businessRoutes");
-const productRoutes = require("./routes/productRoutes");
-const serviceRoutes = require("./routes/serviceRoutes");
-const followRoutes = require("./routes/followRoutes");
+import userRoutes from "./routes/user-routes";
+import businessRoutes from "./routes/business-routes";
+import productRoutes from "./routes/product-routes";
+import serviceRoutes from "./routes/service-routes";
+import followRoutes from "./routes/follow-routes";
 
-module.exports = [
+const router = [
   userRoutes,
   businessRoutes,
   productRoutes,
   serviceRoutes,
   followRoutes,
 ];
+
+export default router;

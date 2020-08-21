@@ -1,19 +1,19 @@
-const Product = require("../models/Product.js");
-
+import Product from "../models/Product.js";
+import { Request, Response } from "express";
 // Adds product to the database
-exports.create = function (req, res) {
+export const createProduct = function (req: Request, res: Response) {
   console.log("create product");
 };
-exports.update = function (req, res) {
+export const updateProduct = function (req: Request, res: Response) {
   console.log("update product");
 };
-exports.delete = function (req, res) {
-  console.log("delete product")
-}
+export const deleteProduct = function (req: Request, res: Response) {
+  console.log("delete product");
+};
 // Gets page for single product
-exports.viewSingle = function (req, res) {
+export const viewSingleProduct = function (req: Request, res: Response) {
   console.log("view single product");
 };
-exports.viewAll = function (req, res) {
-  console.log("view all product")
-}
+export const viewAllProducts = function (req: Request, res: Response) {
+  console.log("view all product");
+};

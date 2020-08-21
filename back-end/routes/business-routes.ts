@@ -1,28 +1,26 @@
-const businessController = require("../controllers/businessController");
-const express = require("express");
-const router = express.Router();
 // Business related routes
+import {
+  registerBusiness,
+  isBusinessAdmin,
+  isResourceOwner,
+  deleteBusiness,
+  businessLogin,
+  businessLogout,
+  doesBusinessNameExist,
+  doesBusinessEmailExist,
+} from "../controllers/business-controller";
+import express from "express";
+const router = express.Router();
+router.post("/business", registerBusiness);
 router.post(
-  // Add a business
-  "/business",
-  businessController.register
+  "/business/:id/delete",
+  isBusinessAdmin,
+  isResourceOwner,
+  deleteBusiness
 );
-router.delete(
-  "/business/:id",
-  businessController.isBusinessAdmin,
-  businessController.isResourceOwner,
-  businessController.delete
-);
-router.post("/business/login", businessController.login);
-router.post(
-  "/business/logout",
-  businessController.isBusinessAdmin,
-  businessController.logout
-);
-router.post("/doesBusinessNameExist", businessController.doesBusinessNameExist);
-router.post(
-  "/doesBusinessEmailExist",
-  businessController.doesBusinessEmailExist
-);
+router.post("/business/login", businessLogin);
+router.post("/business/logout", isBusinessAdmin, businessLogout);
+router.post("/doesBusinessNameExist", doesBusinessNameExist);
+router.post("/doesBusinessEmailExist", doesBusinessEmailExist);
 
-module.exports = router;
+export default router;

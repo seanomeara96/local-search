@@ -1,9 +1,12 @@
-let productsCollection = require("../db").db("Famulis").collection("Products");
+import { client } from "../db";
+client.db("Famulis").collection("Products");
 class Product {
-  constructor(data) {
+  data: any;
+  errors: string[];
+  constructor(data: any) {
     this.data = data;
     this.errors = [];
   }
 }
 
-module.exports = Product;
+export default Product;

@@ -1,10 +1,19 @@
-let businessCollection = require("../db")
-  .db("Famulis")
-  .collection("Businesses");
+import { client } from "../db";
+client.db("Famulis").collection("Businesses");
+
+interface businessData {
+  name: string;
+  locations: string[];
+  email: string;
+  number: string;
+  openingHours: number[];
+}
 class Business {
-  constructor(data) {
+  data: any;
+  errors: string[];
+  constructor(data: businessData) {
     this.data = data;
     this.errors = [];
   }
 }
-module.exports = Business;
+export default Business;

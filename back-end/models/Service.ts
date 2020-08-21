@@ -1,8 +1,9 @@
-let serviceCollection = require("../db").db("Famulis").collection("Services");
+import { client } from "../db";
+client.db("Famulis").collection("Services");
 class Service {
   data: any;
   errors: string[];
-  constructor(data) {
+  constructor(data: any) {
     this.data = data;
     this.errors = [];
   }

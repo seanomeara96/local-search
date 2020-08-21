@@ -1,10 +1,8 @@
-const User = require("../models/User.js");
-const Follow = require("../models/Follow.js");
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
-dotenv.config();
+import User, { findByUserName, doesUserEmailExist } from "../models/User";
+import jwt from "jsonwebtoken";
+import { Request, Response, NextFunction } from "express";
 
-exports.register = async function (req, res) {
+export const registerUser = async function (req: Request, res: Response) {
   console.log("Registering user.", req.body);
   let user = new User(req.body);
   try {
@@ -23,14 +21,14 @@ exports.register = async function (req, res) {
   }
 };
 
-exports.login = async function (req, res) {
+export const userLogin = async function (req: Request, res: Response) {
   console.log("logging in user", req.body);
   let user = new User(req.body);
   try {
     let authenticUser = await user.login();
     const accessToken = jwt.sign(
       authenticUser,
-      process.env.ACCESS_TOKEN_SECRET,
+      process.env.ACCESS_TOKEN_SECRET!,
       { expiresIn: "1m" }
     );
     res.json({ accessToken });
@@ -39,13 +37,13 @@ exports.login = async function (req, res) {
     res.json({ error });
   }
 };
-exports.logout = function (req, res) {
+export const userLogout = function (req: Request, res: Response) {
   console.log("logging out user", req.body);
   res.json({ message: "Successfully logged out." });
 };
-exports.doesUsernameExist = async function (req, res) {
+export const doesUsernameExist = async function (req: Request, res: Response) {
   try {
-    let usedUsername = await User.findByUserName(req.body.username);
+    let usedUsername = await findByUserName(req.body.username);
     if (usedUsername) {
       res.json({ message: "Sorry that username is taken." });
     } else {
@@ -55,9 +53,9 @@ exports.doesUsernameExist = async function (req, res) {
     res.json({ error });
   }
 };
-exports.doesEmailExist = async function (req, res) {
+export const doesEmailExist = async function (req: Request, res: Response) {
   try {
-    let usedEmail = await User.doesEmailExist(req.body.email);
+    let usedEmail = await doesUserEmailExist(req.body.email);
     if (usedEmail) {
       res.json({
         message:
@@ -70,13 +68,17 @@ exports.doesEmailExist = async function (req, res) {
     res.json({ error });
   }
 };
-exports.mustBeLoggedIn = function (req, res, next) {
+export const mustBeLoggedIn = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   if (token == null) return res.sendStatus(401); // Unauthorized
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET!, (err, user) => {
     if (err) return res.sendStatus(403); // Forbidden due to invalid token
-    req.user = user;
+    // req.user = user;
     next();
   });
 };

@@ -1,11 +1,11 @@
-const Follow = require("../models/Follow.js");
-
+import Follow = require("../models/Follow.js");
+import { Request, Response } from "express";
 // Adds relationship object to database
-exports.addFollow = function (req, res) {
-    console.log("add follow")
+export const addFollow = function (req: Request, res: Response) {
+  console.log("add follow");
 };
 
 // Removes relationship object from database
-exports.removeFollow = function (req, res) {
-    console.log("remove follow")
+export const removeFollow = function (req: Request, res: Response) {
+  console.log("remove follow");
 };

@@ -1,40 +1,48 @@
-const Business = require("../models/Business.js");
-
+import Business from "../models/Business";
+import { Request, Response, NextFunction } from "express";
 // Directs them to their business dashboard
-exports.isBusinessAdmin = function (req, res, next) {
+export const isBusinessAdmin = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   // authenticates user as a business user
   console.log("is BusinessAdmin");
   next();
 };
 // Authenticates user is owner of a resource
-exports.isResourceOwner = function (req, res, next) {
+export const isResourceOwner = function (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   console.log("is resource owner");
-  next()
-}
+  next();
+};
 // Logs them into their business account
-exports.login = function (req, res) {
+export const businessLogin = function (req: Request, res: Response) {
   console.log("business login");
 };
 
 // Logs business user out
-exports.logout = function (req, res) {
+export const businessLogout = function (req: Request, res: Response) {
   console.log("business logout");
 };
 
 // registers a business
-exports.register = function (req, res) {
+export const registerBusiness = function (req: Request, res: Response) {
   console.log("business register");
-  res.json({status: "success"})
+  res.json({ status: "success" });
 };
-exports.delete = function (req, res) {
-  console.log("delete a business")
-}
+export const deleteBusiness = function (req: Request, res: Response) {
+  console.log("delete a business");
+};
 // Checks if business name is taken
-exports.doesBusinessNameExist = function (req, res) {
+export const doesBusinessNameExist = function (req: Request, res: Response) {
   console.log("does Business name exist");
 };
 
 // Checks is business email is taken
-exports.doesBusinessEmailExist = function (req, res) {
+export const doesBusinessEmailExist = function (req: Request, res: Response) {
   console.log("does business email exist");
 };

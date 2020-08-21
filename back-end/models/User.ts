@@ -1,11 +1,18 @@
 let usersCollection = require("../db").db("Famulis").collection("Users");
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
+interface UserObject {}
 class User {
-  constructor(data) {
+  data: any;
+  errors: string[];
+  constructor(data: any) {
     this.data = data;
     this.errors = [];
   }
+  cleanUp!: () => void;
+  validate!: () => void;
+  login!: () => Promise<UserObject>;
+  register!: () => void;
 }
 User.prototype.cleanUp = function () {
   if (typeof this.data.username != "string") {
@@ -91,7 +98,7 @@ User.prototype.login = function () {
     }
     usersCollection
       .findOne(identifier)
-      .then((attemptedUser) => {
+      .then((attemptedUser: any) => {
         if (
           attemptedUser &&
           bcrypt.compareSync(this.data.password, attemptedUser.password)
@@ -125,7 +132,7 @@ User.prototype.register = function () {
   });
 };
 
-User.findByUserName = function (username) {
+export const findByUserName = function (username: string) {
   return new Promise(function (resolve, reject) {
     if (typeof username != "string") {
       reject("Username must be of type: string.");
@@ -133,9 +140,9 @@ User.findByUserName = function (username) {
     }
     usersCollection
       .findOne({ username: username })
-      .then(function (userDoc) {
+      .then(function (userDoc: any) {
         if (userDoc) {
-          userDoc = new User(userDoc, true);
+          userDoc = new User(userDoc);
           userDoc = {
             _id: userDoc.data._id,
             username: userDoc.data.username,
@@ -151,7 +158,7 @@ User.findByUserName = function (username) {
   });
 };
 
-User.doesEmailExist = function (email) {
+export const doesUserEmailExist = function (email: string) {
   return new Promise(async function (resolve, reject) {
     if (typeof email != "string") resolve(false);
     let user = await usersCollection.findOne({ email: email });
@@ -163,4 +170,4 @@ User.doesEmailExist = function (email) {
   });
 };
 
-module.exports = User;
+export default User;
