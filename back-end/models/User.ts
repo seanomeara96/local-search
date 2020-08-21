@@ -1,6 +1,7 @@
-let usersCollection = require("../db").db("Famulis").collection("Users");
-const bcrypt = require("bcryptjs");
-const validator = require("validator");
+import { client } from "../db";
+const usersCollection = client.db("Famulis").collection("Users");
+import bcrypt from "bcryptjs";
+import validator from "validator";
 interface UserObject {}
 class User {
   data: any;
