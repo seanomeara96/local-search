@@ -1,7 +1,7 @@
-const dotenv = require("dotenv");
-dotenv.config();
-const mongodb = require("mongodb");
-mongodb.connect(
+import mongodb from "mongodb";
+export let client;
+/**
+ * mongodb.connect(
   process.env.CONNECTIONSTRING,
   { useUnifiedTopology: true },
   (err, client) => {
@@ -14,3 +14,19 @@ mongodb.connect(
     );
   }
 );
+
+ */
+const connect = function () {
+  return new Promise(async (resolve, reject) => {
+    try {
+      client = await mongodb.connect(process.env.CONNECTIONSTRING, {
+        useUnifiedTopology: true,
+      });
+      resolve();
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
+export default connect;

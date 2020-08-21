@@ -1,9 +1,11 @@
 let serviceCollection = require("../db").db("Famulis").collection("Services");
 class Service {
+  data: any;
+  errors: string[];
   constructor(data) {
     this.data = data;
     this.errors = [];
   }
 }
 
-module.exports = Service;
+export default Service;
