@@ -134,14 +134,14 @@ User.prototype.register = function () {
 };
 
 export const findByUserName = function (username: string) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     if (typeof username != "string") {
       reject("Username must be of type: string.");
       return;
     }
     usersCollection()
       .findOne({ username: username })
-      .then(function (userDoc: any) {
+      .then((userDoc: any) => {
         if (userDoc) {
           userDoc = new User(userDoc);
           userDoc = {
@@ -153,14 +153,14 @@ export const findByUserName = function (username: string) {
           resolve(false);
         }
       })
-      .catch(function () {
+      .catch(() => {
         reject("There was an error finding a user by username.");
       });
   });
 };
 
 export const doesUserEmailExist = function (email: string) {
-  return new Promise(async function (resolve, reject) {
+  return new Promise(async (resolve, reject) => {
     if (typeof email != "string") resolve(false);
     let user = await usersCollection().findOne({ email: email });
     if (user) {

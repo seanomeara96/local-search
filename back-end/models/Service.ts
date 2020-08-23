@@ -1,11 +1,8 @@
 import { servicesCollection } from "../db";
-class Service {
-  data: any;
-  errors: string[];
-  constructor(data: any) {
-    this.data = data;
-    this.errors = [];
-  }
-}
+import BusinessResource from "./BusinessResource";
 
+class Service extends BusinessResource {
+  collection = servicesCollection;
+}
+console.log(Service);
 export default Service;

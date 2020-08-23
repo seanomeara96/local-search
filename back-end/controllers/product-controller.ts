@@ -2,7 +2,7 @@ import Product from "../models/Product.js";
 import { Request, Response } from "express";
 // Adds product to the database
 export const createProduct = function (req: Request, res: Response) {
-  console.log("create product");
+  // Create Product here
 };
 export const updateProduct = function (req: Request, res: Response) {
   console.log("update product");

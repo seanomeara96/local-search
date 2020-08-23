@@ -1,11 +1,6 @@
 import { productsCollection } from "../db";
-class Product {
-  data: any;
-  errors: string[];
-  constructor(data: any) {
-    this.data = data;
-    this.errors = [];
-  }
+import BusinessResource from "./BusinessResource";
+class Product extends BusinessResource {
+  collection = productsCollection;
 }
-
 export default Product;
