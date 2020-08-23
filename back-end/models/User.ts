@@ -1,7 +1,7 @@
-import { client } from "../db";
-const usersCollection = client.db("Famulis").collection("Users");
+import { usersCollection } from "../db";
 import bcrypt from "bcryptjs";
 import validator from "validator";
+import { FilterQuery } from "mongodb";
 interface UserObject {}
 class User {
   data: any;
@@ -66,7 +66,7 @@ User.prototype.validate = function () {
       this.data.username.length < 31 &&
       validator.isAlphanumeric(this.data.username)
     ) {
-      let usernameExists = await usersCollection.findOne({
+      let usernameExists = await usersCollection().findOne({
         username: this.data.username,
       });
       if (usernameExists) {
@@ -74,7 +74,7 @@ User.prototype.validate = function () {
       }
     }
     if (validator.isEmail(this.data.email)) {
-      let emailExists = await usersCollection.findOne({
+      let emailExists = await usersCollection().findOne({
         email: this.data.email,
       });
       if (emailExists) {
@@ -89,7 +89,7 @@ User.prototype.login = function () {
   return new Promise((resolve, reject) => {
     this.cleanUp();
     // take username or email
-    let identifier;
+    let identifier: FilterQuery<any>;
     if (this.data.username) {
       identifier = { username: this.data.username };
     } else if (this.data.email) {
@@ -97,8 +97,8 @@ User.prototype.login = function () {
     } else {
       reject("something went wrong");
     }
-    usersCollection
-      .findOne(identifier)
+    usersCollection()
+      .findOne(identifier!)
       .then((attemptedUser: any) => {
         if (
           attemptedUser &&
@@ -125,7 +125,7 @@ User.prototype.register = function () {
     if (!this.errors.length) {
       let salt = bcrypt.genSaltSync(10);
       this.data.password = bcrypt.hashSync(this.data.password, salt);
-      await usersCollection.insertOne(this.data);
+      await usersCollection().insertOne(this.data);
       resolve();
     } else {
       reject(this.errors);
@@ -139,7 +139,7 @@ export const findByUserName = function (username: string) {
       reject("Username must be of type: string.");
       return;
     }
-    usersCollection
+    usersCollection()
       .findOne({ username: username })
       .then(function (userDoc: any) {
         if (userDoc) {
@@ -162,7 +162,7 @@ export const findByUserName = function (username: string) {
 export const doesUserEmailExist = function (email: string) {
   return new Promise(async function (resolve, reject) {
     if (typeof email != "string") resolve(false);
-    let user = await usersCollection.findOne({ email: email });
+    let user = await usersCollection().findOne({ email: email });
     if (user) {
       resolve(true);
     } else {

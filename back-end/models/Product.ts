@@ -1,5 +1,4 @@
-import { client } from "../db";
-client.db("Famulis").collection("Products");
+import { productsCollection } from "../db";
 class Product {
   data: any;
   errors: string[];

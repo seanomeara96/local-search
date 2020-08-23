@@ -1,4 +1,4 @@
-import mongodb, { MongoClient } from "mongodb";
+import mongodb, { MongoClient, Collection } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
 export let client: MongoClient;
@@ -17,4 +17,11 @@ const connect = function () {
   });
 };
 
+const createCollection = (collectionName: string) => (): Collection =>
+  client.db("Famulis").collection(collectionName);
+export const usersCollection = createCollection("Users");
+export const businessCollection = createCollection("Businesses");
+export const followsCollection = createCollection("Follows");
+export const productsCollection = createCollection("Products");
+export const servicesCollection = createCollection("Services");
 export default connect;

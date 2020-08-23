@@ -7,12 +7,10 @@ export const registerUser = async function (req: Request, res: Response) {
   let user = new User(req.body);
   try {
     let newUser = await user.register();
-
     console.log("Successful user registration:", newUser);
-    res.status(201).json({ message: `Welcome, ${newUser}` });
+    res.sendStatus(201);
   } catch (errors) {
     console.log(errors);
-
     if (Array.isArray(errors)) {
       res.json({ errors });
     } else {

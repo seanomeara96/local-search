@@ -1,5 +1,4 @@
-import { client } from "../db";
-client.db("Famulis").collection("Follows");
+import { followsCollection } from "../db";
 import User from "./User";
 import { ObjectID } from "mongodb";
 class Follow {

@@ -1,5 +1,4 @@
-import { client } from "../db";
-client.db("Famulis").collection("Businesses");
+import { businessCollection } from "../db";
 
 interface businessData {
   name: string;
