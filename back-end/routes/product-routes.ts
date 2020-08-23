@@ -19,23 +19,12 @@ const router = express.Router();
 router.post("/product", isBusinessAdmin, createProduct);
 
 // Update a product
-router.post(
-  "/product/:productId/update",
-  isBusinessAdmin,
-  isResourceOwner,
-  updateProduct
-);
+router.post("/product/update", isBusinessAdmin, isResourceOwner, updateProduct);
 
 // Delete a product
-router.post(
-  "/product/:productId/delete",
-  isBusinessAdmin,
-  isResourceOwner,
-  deleteProduct
-);
+router.post("/product/delete", isBusinessAdmin, isResourceOwner, deleteProduct);
 
 // Non-Administrative
 router.get("/:businessId/products", viewAllProducts);
-router.get("/:businessId/product/:productId", viewSingleProduct);
-
+router.get("/product/:productId", viewSingleProduct);
 export default router;

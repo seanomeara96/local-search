@@ -4,8 +4,9 @@ import { mustBeLoggedIn } from "../controllers/user-controller";
 
 import express from "express";
 const router = express.Router();
-
-router.post("/follow/:businessId/create", mustBeLoggedIn, addFollow);
-router.post("/follow/:businessId/delete", mustBeLoggedIn, removeFollow);
+// creates relationship
+router.post("/follow/create", mustBeLoggedIn, addFollow);
+// destroys relationship
+router.post("/follow/delete", mustBeLoggedIn, removeFollow);
 
 export default router;

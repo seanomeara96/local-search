@@ -35,6 +35,6 @@ router.post(
 
 // Non-Administrative
 router.get("/:businessId/services", viewAllServices);
-router.get("/:businessId/service/:serviceId", viewSingleService);
+router.get("/service/:serviceId", viewSingleService);
 
 export default router;
