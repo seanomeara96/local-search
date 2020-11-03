@@ -1,4 +1,4 @@
-[
+const IrishLocations = [
   "Abbeydorney",
   "Abbeyfeale",
   "Abbeyknockmoy",
@@ -18,7 +18,8 @@
   "Aghabullogue",
   "Aghada",
   "Aghamore",
-  "Agher,  Aglish",
+  "Agher",
+  "Aglish",
   "Ahakista",
   "Annacurra",
   "Ahascragh",
@@ -1352,5 +1353,7 @@
   "Woodlawn",
   "Whitehall",
   "Yellow Furze",
-  "Youghal"
-]
+  "Youghal",
+];
+
+export default IrishLocations;

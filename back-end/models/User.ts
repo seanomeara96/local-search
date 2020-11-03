@@ -162,11 +162,15 @@ export const findByUserName = function (username: string) {
 export const doesUserEmailExist = function (email: string) {
   return new Promise(async (resolve, reject) => {
     if (typeof email != "string") resolve(false);
-    let user = await usersCollection().findOne({ email: email });
-    if (user) {
-      resolve(true);
-    } else {
-      resolve(false);
+    try {
+      let user = await usersCollection().findOne({ email: email });
+      if (user) {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    } catch (err) {
+      reject(err);
     }
   });
 };
