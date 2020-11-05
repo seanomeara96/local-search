@@ -14,8 +14,8 @@ class Business {
     this.data = data;
     this.errors = [];
   }
-  registerBusiness!: () => Promise<void>;
-  deleteBusiness!: () => Promise<void>;
+  registerBusiness!: () => Promise<any>;
+  deleteBusiness!: () => Promise<any>;
   businessLogin!: () => Promise<any>;
 }
 
@@ -43,31 +43,45 @@ Business.prototype.businessLogin = function () {
 Business.prototype.registerBusiness = function () {
   return new Promise(async (resolve, reject) => {
     if (!this.errors.length) {
-      await businessCollection().insertOne({});
-      resolve();
+      try {
+        const newBusiness = await businessCollection().insertOne({});
+        resolve(newBusiness);
+      } catch (err) {
+        reject("Something went wrong while registering the business.");
+      }
     } else {
-      reject();
+      reject(this.errors);
     }
   });
 };
 Business.prototype.deleteBusiness = function () {
   return new Promise(async (resolve, reject) => {
     if (!this.errors.length) {
-      await businessCollection().deleteOne({});
-      resolve();
+      try {
+        await businessCollection().deleteOne({});
+        resolve("Successfully deleted the business");
+      } catch (err) {
+        reject("Something went wrong deleting this business");
+      }
     } else {
-      reject();
+      reject(this.errors);
     }
   });
 };
 export const doesEmailExist = function () {
   return new Promise(async (resolve, reject) => {
-    const res = await businessCollection().findOne({});
-    // findone resolves with?
-    if (/*sucess*/ res) {
-      resolve();
-    } else {
-      reject();
+    try {
+      const res = await businessCollection().findOne({
+        /*email to search*/
+      });
+      // findone resolves with?
+      if (/*sucess*/ res) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    } catch (err) {
+      reject("Something went wrong finding email");
     }
   });
 };
