@@ -1,0 +1,10 @@
+.wrapper {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+@media (min-width: 500px) {
+  .wrapper {
+    display: inline-block;
+    width: calc(500px - 4rem);
+  }
+}

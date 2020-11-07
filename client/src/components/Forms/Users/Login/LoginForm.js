@@ -5,6 +5,7 @@ import StandardField from "../../Inputs/StandardField";
 import styles from "./LoginForm.module.css";
 import axios from "axios";
 import history from "../../../../history";
+import Button from "../../../Buttons/Button";
 class LoginForm extends React.Component {
   onSubmit = (formValues) => {
     axios
@@ -20,7 +21,6 @@ class LoginForm extends React.Component {
       });
   };
   render() {
-    console.log(this.props);
     return (
       <form
         onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -47,9 +47,9 @@ class LoginForm extends React.Component {
         <div className={styles.registerLink}>
           <Link to="/register">Don't have an account?</Link>
         </div>
-        <button className="ui green button" type="submit">
+        <Button modifier="primary" type="submit">
           Log in
-        </button>
+        </Button>
       </form>
     );
   }

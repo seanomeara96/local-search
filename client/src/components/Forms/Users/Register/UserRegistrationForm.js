@@ -4,7 +4,10 @@ import StandardField from "../../Inputs/StandardField";
 import CheckBox from "../../Inputs/CheckBox";
 import axios from "axios";
 import Button from "../../../Buttons/Button";
+import PageSection from "../../../Layout/PageSection";
+import Wrapper from "../../../Layout/Wrapper";
 class UserRegistrationForm extends React.Component {
+  state = { errors: [] };
   onSubmit = (formValues) => {
     if (
       formValues.password === formValues.confirmedPassword &&
@@ -16,9 +19,21 @@ class UserRegistrationForm extends React.Component {
           .post("/register", cleanedFields)
           .then((serverResponse) => {
             // redirect to homepage
+            // show errors if there are any
+            if (serverResponse.data.errors) {
+              this.setState({
+                errors: [
+                  ...serverResponse.data.errors.map((error) => (
+                    <div className="ui error message" key={error}>
+                      {error}
+                    </div>
+                  )),
+                ],
+              });
+            }
           })
           .catch((errs) => {
-            console.err(errs);
+            console.error(errs);
           });
         // Then should redirect to sign in
       });
@@ -55,8 +70,8 @@ class UserRegistrationForm extends React.Component {
 
   render() {
     return (
-      <section className="page-section">
-        <div className="wrapper">
+      <PageSection>
+        <Wrapper>
           <h2 className="header">Create a user account</h2>
           <div className="rows">
             <div className="rows__300px">
@@ -115,12 +130,15 @@ class UserRegistrationForm extends React.Component {
                     </label>
                   </div>
                 </div>
-                <Button modifier="primary">Create Account</Button>
+                <Button modifier="primary" type="submit">
+                  Create Account
+                </Button>
               </form>
+              {this.state.errors}
             </div>
           </div>
-        </div>
-      </section>
+        </Wrapper>
+      </PageSection>
     );
   }
 }
