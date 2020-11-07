@@ -11,9 +11,9 @@ class User {
     this.errors = [];
   }
   cleanUp!: () => void;
-  validate!: () => void;
+  validate!: () => Promise<void>;
   login!: () => Promise<UserObject>;
-  register!: () => void;
+  register!: () => Promise<any>;
 }
 User.prototype.cleanUp = function () {
   if (typeof this.data.username != "string") {
@@ -125,8 +125,8 @@ User.prototype.register = function () {
     if (!this.errors.length) {
       let salt = bcrypt.genSaltSync(10);
       this.data.password = bcrypt.hashSync(this.data.password, salt);
-      await usersCollection().insertOne(this.data);
-      resolve();
+      const newUser = await usersCollection().insertOne(this.data);
+      resolve(newUser);
     } else {
       reject(this.errors);
     }

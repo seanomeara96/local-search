@@ -70,75 +70,64 @@ class UserRegistrationForm extends React.Component {
 
   render() {
     return (
-      <PageSection>
-        <Wrapper>
-          <h2 className="header">Create a user account</h2>
-          <div className="rows">
-            <div className="rows__300px">
-              <form
-                onSubmit={this.props.handleSubmit(this.onSubmit)}
-                className="ui form"
-              >
-                <div className="field">
-                  <label htmlFor="chosenUsername">Pick a username</label>
-                  <Field
-                    component={StandardField}
-                    id="chosenUsername"
-                    type="text"
-                    name="username"
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="emailAddress">Enter your Email</label>
-                  <Field
-                    component={StandardField}
-                    name="email"
-                    id="emailAddress"
-                    type="email"
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="chosenPassword">Enter a password</label>
-                  <Field
-                    component={StandardField}
-                    name="password"
-                    id="chosenPassword"
-                    type="password"
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="confirmPassword">Confirm your password</label>
-                  <Field
-                    component={StandardField}
-                    id="confirmPassword"
-                    name="confirmedPassword"
-                    type="password"
-                  />
-                </div>
-                <div className="field">
-                  <div className="ui checkbox">
-                    <Field
-                      component={CheckBox}
-                      id="CheckTC"
-                      type="checkbox"
-                      tabIndex="0"
-                      name="terms"
-                      className="hidden"
-                    />
-                    <label htmlFor="CheckTC">
-                      I agree to the terms and conditions
-                    </label>
-                  </div>
-                </div>
-                <Button modifier="primary" type="submit">
-                  Create Account
-                </Button>
-              </form>
-              {this.state.errors}
-            </div>
+      <form
+        onSubmit={this.props.handleSubmit(this.onSubmit)}
+        className="ui form"
+      >
+        <div className="field">
+          <label htmlFor="chosenUsername">Pick a username</label>
+          <Field
+            component={StandardField}
+            id="chosenUsername"
+            type="text"
+            name="username"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="emailAddress">Enter your Email</label>
+          <Field
+            component={StandardField}
+            name="email"
+            id="emailAddress"
+            type="email"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="chosenPassword">Enter a password</label>
+          <Field
+            component={StandardField}
+            name="password"
+            id="chosenPassword"
+            type="password"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="confirmPassword">Confirm your password</label>
+          <Field
+            component={StandardField}
+            id="confirmPassword"
+            name="confirmedPassword"
+            type="password"
+          />
+        </div>
+        <div className="field">
+          <div className="ui checkbox">
+            <Field
+              component={CheckBox}
+              id="CheckTC"
+              type="checkbox"
+              tabIndex="0"
+              name="terms"
+              className="hidden"
+            />
+            <label htmlFor="CheckTC">I agree to the terms and conditions</label>
           </div>
-        </Wrapper>
-      </PageSection>
+        </div>
+        <Button modifier="primary" type="submit">
+          Create Account
+        </Button>
+        {this.state.errors}
+      </form>
     );
   }
 }
