@@ -21,13 +21,17 @@ const SearchForm = (props) => {
       />
       <datalist id="categories">
         {BusinessCategories.map((category) => (
-          <option key={category}>{category}</option>
+          <option value={category} key={category}>
+            {category}
+          </option>
         ))}
       </datalist>
       <Field component={input} id="location" name="location" list="locations" />
       <datalist id="locations">
         {IrishLocations.map((location) => (
-          <option key={location}>{location}</option>
+          <option value={location} key={location}>
+            {location}
+          </option>
         ))}
       </datalist>
 
