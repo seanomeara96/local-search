@@ -1,6 +1,6 @@
 {
   "name": "online-irish-business-client",
-  "proxy":"http://localhost:3793",
+  "proxy": "http://localhost:3793",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -3,8 +3,8 @@ import { Router, Route, Switch } from "react-router-dom";
 import history from "../history";
 // components
 import Home from "./Home/Home";
-import BottomNav from "./Global/BottomNav/BottomNav";
-import UserRegistrationForm from "./Forms/UserRegistrationForm/UserRegistrationForm";
+import BottomNav from "./Nav/BottomNav/BottomNav";
+import UserRegistrationForm from "./Forms/Users/Register/UserRegistrationForm";
 // styles
 import "../styles.css";
 const App = () => {
