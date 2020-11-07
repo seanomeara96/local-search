@@ -1,11 +1,9 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import StandardField from "../../Inputs/StandardField";
-import CheckBox from "../../Inputs/CheckBox";
+import StandardField from "../../inputs/StandardField";
+import CheckBox from "../../inputs/CheckBox";
 import axios from "axios";
-import Button from "../../../Buttons/Button";
-import PageSection from "../../../Layout/PageSection";
-import Wrapper from "../../../Layout/Wrapper";
+import Button from "../../../buttons/Button";
 class UserRegistrationForm extends React.Component {
   state = { errors: [] };
   onSubmit = (formValues) => {

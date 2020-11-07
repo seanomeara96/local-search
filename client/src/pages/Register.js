@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/Layout/Layout";
-import UserRegistrationForm from "../components/Forms/Users/Register/UserRegistrationForm";
+import Layout from "../components/layout/Layout";
+import UserRegistrationForm from "../components/forms/users/register/UserRegistrationForm";
 
 const Register = () => (
   <Layout>

@@ -1,11 +1,11 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { Link } from "react-router-dom";
-import StandardField from "../../Inputs/StandardField";
+import StandardField from "../../inputs/StandardField";
 import styles from "./LoginForm.module.css";
 import axios from "axios";
 import history from "../../../../history";
-import Button from "../../../Buttons/Button";
+import Button from "../../../buttons/Button";
 class LoginForm extends React.Component {
   onSubmit = (formValues) => {
     axios

@@ -1,6 +1,6 @@
 import React from "react";
-import LoginForm from "../components/Forms/Users/Login/LoginForm";
-import Layout from "../components/Layout/Layout";
+import LoginForm from "../components/forms/users/login/LoginForm";
+import Layout from "../components/layout/Layout";
 const Login = (props) => (
   <Layout>
     <h1 className="ui header">
