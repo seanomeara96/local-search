@@ -8,9 +8,13 @@ const SearchForm = (props) => {
   console.log(props);
   const onSubmit = (formValues) => {
     console.log(formValues);
-    Axios.post("/test", formValues);
+    Axios.post("/test", formValues)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   };
-  const input = (props) => <input {...props.input} list={props.list} />;
+  const input = (props) => (
+    <input {...props.input} list={props.list} placeholder={props.placeholder} />
+  );
   return (
     <form onSubmit={props.handleSubmit(onSubmit)}>
       <Field
@@ -18,6 +22,7 @@ const SearchForm = (props) => {
         name="category"
         id="category"
         list="categories"
+        placeholder="Looking for..."
       />
       <datalist id="categories">
         {BusinessCategories.map((category) => (

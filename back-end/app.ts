@@ -5,7 +5,7 @@ import { NotFoundError } from "./errors/not-found-error";
 import { errorHandler } from "./middlewares/error-handler";
 const app = express();
 app.listen(process.env.PORT!, () => {
-  console.log("Starting application...");
+  console.log("Starting application...", process.env.PORT!);
   connect()
     .then(() => {
       app.use(express.urlencoded({ extended: false }));
