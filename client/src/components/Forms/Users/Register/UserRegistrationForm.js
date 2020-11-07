@@ -3,9 +3,9 @@ import { Field, reduxForm } from "redux-form";
 import StandardField from "../../Inputs/StandardField";
 import CheckBox from "../../Inputs/CheckBox";
 import axios from "axios";
+import Button from "../../../Buttons/Button";
 class UserRegistrationForm extends React.Component {
   onSubmit = (formValues) => {
-    console.log(formValues);
     if (
       formValues.password === formValues.confirmedPassword &&
       formValues.terms === true // Terms and Conditions have been agreed to
@@ -15,10 +15,10 @@ class UserRegistrationForm extends React.Component {
         axios
           .post("/register", cleanedFields)
           .then((serverResponse) => {
-            console.log(serverResponse);
+            // redirect to homepage
           })
           .catch((errs) => {
-            console.log(errs);
+            console.err(errs);
           });
         // Then should redirect to sign in
       });
@@ -115,9 +115,7 @@ class UserRegistrationForm extends React.Component {
                     </label>
                   </div>
                 </div>
-                <button className="ui green button" type="submit">
-                  Create Account
-                </button>
+                <Button modifier="primary">Create Account</Button>
               </form>
             </div>
           </div>

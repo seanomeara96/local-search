@@ -1,0 +1,22 @@
+.button {
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  margin-bottom: 0.25em;
+  padding: 0.75em 1.5em 0.75em 1.5em;
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.32rem;
+}
+.primary {
+  background-color: green;
+  color: #fff;
+}
