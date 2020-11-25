@@ -17,6 +17,33 @@ import request from "supertest";
 /**
  * Not a bad idea to assign a signin function to NodeJs's global object so that it is accessible from all test files
  */
-beforeAll(async () => {});
-beforeEach(async () => {});
-afterAll(async () => {});
+let mongo: MongoMemoryServer;
+
+beforeAll(async () => {
+  mongo = new MongoMemoryServer();
+  // connect
+});
+beforeEach(async () => {
+  const collections = MongoMemoryServer;
+});
+afterAll(async () => {
+  await mongo.stop();
+  // disconnect
+});
+declare global {
+  namespace NodeJS {
+    interface Global {
+      signin(): Promise<string[]>;
+    }
+  }
+}
+global.signin = async () => {
+  const email = "email@email.com";
+  const password = "password";
+  const res = await request(app)
+    .post("/api/users/signup")
+    .send({ email, password })
+    .expect(201);
+  const cookie = res.get("Set-Cookie");
+  return cookie;
+};
