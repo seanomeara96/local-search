@@ -3,6 +3,10 @@ import app from "../../app";
 
 it("responds with a 201 if user sucessfully registered", async () => {
   // stuff goes here
+  request(app)
+    .post("/")
+    .send({ email: "valid@email.com", password: "Strong.password1" })
+    .expect(201);
 });
 
 it("responds with 200 & cookie if user sucessfully logs in", async () => {

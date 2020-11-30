@@ -1,3 +1,4 @@
+import express from "express";
 // Business related routes
 import {
   registerBusiness,
@@ -9,24 +10,32 @@ import {
   doesBusinessNameExist,
   doesBusinessEmailExist,
 } from "../controllers/business-controller";
-import express from "express";
+
+import {
+  BusinessLoginURL,
+  BusinessLogoutURL,
+  DeleteBusinessURL,
+  DoesBusinessEmailExistURL,
+  DoesBusinessUsernameExistURL,
+  RegisterBusinessURL,
+} from "./URLS/BusinessUrls";
 const router = express.Router();
 // register a business
-router.post("/business/register", registerBusiness);
+router.post(RegisterBusinessURL, registerBusiness);
 // delete a business
 router.post(
-  "/business/delete",
+  DeleteBusinessURL,
   isBusinessAdmin,
   isResourceOwner,
   deleteBusiness
 );
 // login as business admin
-router.post("/business/login", businessLogin);
+router.post(BusinessLoginURL, businessLogin);
 // logout as business admin
-router.post("/business/logout", isBusinessAdmin, businessLogout);
+router.post(BusinessLogoutURL, isBusinessAdmin, businessLogout);
 // check if business name exists
-router.post("/doesBusinessNameExist", doesBusinessNameExist);
+router.post(DoesBusinessUsernameExistURL, doesBusinessNameExist);
 // check if business email exists
-router.post("/doesBusinessEmailExist", doesBusinessEmailExist);
+router.post(DoesBusinessEmailExistURL, doesBusinessEmailExist);
 
 export default router;

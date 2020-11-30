@@ -8,15 +8,22 @@ import {
   doesUsernameExist,
 } from "../controllers/user-controller";
 import express from "express";
+import {
+  DoesEmailExistURL,
+  DoesUsernameExistURL,
+  LoginURL,
+  LogoutURL,
+  RegisterURL,
+} from "./URLS/UserUrls";
 const router = express.Router();
 // register a user
-router.post("/register", registerUser);
+router.post(RegisterURL, registerUser);
 // logs a user in
-router.post("/login", userLogin);
+router.post(LoginURL, userLogin);
 // checks username availability
-router.post("/doesUsernameExist", doesUsernameExist);
+router.post(DoesUsernameExistURL, doesUsernameExist);
 // checks email availability
-router.post("/doesEmailExist", doesEmailExist);
+router.post(DoesEmailExistURL, doesEmailExist);
 // ends user's session
-router.post("/logout", mustBeLoggedIn, userLogout);
+router.post(LogoutURL, mustBeLoggedIn, userLogout);
 export default router;
