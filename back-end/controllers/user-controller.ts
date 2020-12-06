@@ -2,7 +2,7 @@ import User, { findByUserName, doesUserEmailExist } from "../models/User";
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
-export const registerUser = async function (req: Request, res: Response) {
+export const register = async function (req: Request, res: Response) {
   console.log("Registering user.", req.body);
   let user = new User(req.body);
   try {
@@ -19,7 +19,7 @@ export const registerUser = async function (req: Request, res: Response) {
   }
 };
 
-export const userLogin = async function (req: Request, res: Response) {
+export const login = async function (req: Request, res: Response) {
   console.log("logging in user", req.body);
   let user = new User(req.body);
   try {
@@ -35,7 +35,7 @@ export const userLogin = async function (req: Request, res: Response) {
     res.json({ error });
   }
 };
-export const userLogout = function (req: Request, res: Response) {
+export const logout = function (req: Request, res: Response) {
   console.log("logging out user", req.body);
   res.json({ message: "Successfully logged out." });
 };

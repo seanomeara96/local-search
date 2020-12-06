@@ -1,30 +1,32 @@
-// Product related routes
+import express from "express";
+import * as Product from "../controllers/product-controller";
+import * as URL from "./urls/product-urls";
 import {
-  createProduct,
-  updateProduct,
-  deleteProduct,
-  viewAllProducts,
-  viewSingleProduct,
-} from "../controllers/product-controller";
-import {
-  isBusinessAdmin,
+  isClientAdmin,
   isResourceOwner,
 } from "../controllers/business-controller";
-
-import express from "express";
 const router = express.Router();
 // Administrative
-
 // Add a product
-router.post("/product", isBusinessAdmin, createProduct);
+router.post(URL.createProduct, isClientAdmin, Product.createProduct);
 
 // Update a product
-router.post("/product/update", isBusinessAdmin, isResourceOwner, updateProduct);
+router.post(
+  URL.updateProduct,
+  isClientAdmin,
+  isResourceOwner,
+  Product.updateProduct
+);
 
 // Delete a product
-router.post("/product/delete", isBusinessAdmin, isResourceOwner, deleteProduct);
+router.post(
+  URL.deleteProduct,
+  isClientAdmin,
+  isResourceOwner,
+  Product.deleteProduct
+);
 
 // Non-Administrative
-router.get("/:businessId/products", viewAllProducts);
-router.get("/product/:productId", viewSingleProduct);
+router.get(URL.viewAllProducts, Product.viewAllProducts);
+router.get(URL.viewSingleProduct, Product.viewSingleProduct);
 export default router;

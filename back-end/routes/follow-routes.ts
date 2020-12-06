@@ -1,12 +1,11 @@
-//Follow related routes
-import { addFollow, removeFollow } from "../controllers/follow-controller";
-import { mustBeLoggedIn } from "../controllers/user-controller";
-
 import express from "express";
+import * as Follow from "../controllers/follow-controller";
+import * as URL from "./urls/follow-urls";
+import { mustBeLoggedIn } from "../controllers/user-controller";
 const router = express.Router();
 // creates relationship
-router.post("/follow/create", mustBeLoggedIn, addFollow);
+router.post(URL.CreateFollow, mustBeLoggedIn, Follow.addFollow);
 // destroys relationship
-router.post("/follow/delete", mustBeLoggedIn, removeFollow);
+router.post(URL.RemoveFollow, mustBeLoggedIn, Follow.removeFollow);
 
 export default router;

@@ -1,29 +1,15 @@
-// User related routes
-import {
-  registerUser,
-  userLogin,
-  userLogout,
-  mustBeLoggedIn,
-  doesEmailExist,
-  doesUsernameExist,
-} from "../controllers/user-controller";
 import express from "express";
-import {
-  DoesEmailExistURL,
-  DoesUsernameExistURL,
-  LoginURL,
-  LogoutURL,
-  RegisterURL,
-} from "./URLS/UserUrls";
+import * as User from "../controllers/user-controller";
+import * as URL from "./urls/user-urls";
 const router = express.Router();
 // register a user
-router.post(RegisterURL, registerUser);
+router.post(URL.RegisterURL, User.register);
 // logs a user in
-router.post(LoginURL, userLogin);
+router.post(URL.LoginURL, User.login);
 // checks username availability
-router.post(DoesUsernameExistURL, doesUsernameExist);
+router.post(URL.DoesUsernameExistURL, User.doesUsernameExist);
 // checks email availability
-router.post(DoesEmailExistURL, doesEmailExist);
+router.post(URL.DoesEmailExistURL, User.doesEmailExist);
 // ends user's session
-router.post(LogoutURL, mustBeLoggedIn, userLogout);
+router.post(URL.LogoutURL, User.mustBeLoggedIn, User.logout);
 export default router;
