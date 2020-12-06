@@ -4,8 +4,15 @@
   "description": "platform for businesses",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll --no-cache ",
     "start": "nodemon --watch ./ -e .ts --exec ts-node app"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./test/setup.ts"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -13,9 +20,10 @@
     "@types/jest": "^26.0.10",
     "@types/supertest": "^2.0.10",
     "jest": "^26.4.2",
-    "mongodb-memory-server": "^6.6.4",
+    "mongodb-memory-server": "^6.9.2",
     "nodemon": "^2.0.4",
-    "supertest": "^4.0.2"
+    "supertest": "^4.0.2",
+    "ts-jest": "^26.4.4"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",

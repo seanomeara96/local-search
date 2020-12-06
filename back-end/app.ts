@@ -6,7 +6,7 @@ import { errorHandler } from "./middlewares/error-handler";
 const app = express();
 app.listen(process.env.PORT!, () => {
   console.log("Starting application...", process.env.PORT!);
-  connect()
+  connect() // connects to db
     .then(() => {
       app.use(express.urlencoded({ extended: false }));
       app.use(express.json());

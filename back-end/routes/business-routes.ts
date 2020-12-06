@@ -7,14 +7,14 @@ router.post(URL.RegisterBusinessURL, Business.register);
 // delete a business
 router.post(
   URL.DeleteBusinessURL,
-  Business.isAdmin,
+  Business.isClientAdmin,
   Business.isResourceOwner,
   Business.remove
 );
 // login as business admin
 router.post(URL.BusinessLoginURL, Business.login);
 // logout as business admin
-router.post(URL.BusinessLogoutURL, Business.isAdmin, Business.logout);
+router.post(URL.BusinessLogoutURL, Business.isClientAdmin, Business.logout);
 // check if business name exists
 router.post(URL.DoesBusinessUsernameExistURL, Business.doesNameExist);
 // check if business email exists
