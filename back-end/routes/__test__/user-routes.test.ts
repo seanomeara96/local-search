@@ -3,7 +3,7 @@ import app from "../../app";
 import * as URL from "../urls/user-urls";
 it("responds with a 201 if user sucessfully registered", async () => {
   await request(app)
-    .post(URL.RegisterURL)
+    .post(URL.RegisterUser)
     .send({
       username: "seanomeara96",
       email: "valid@email.com",
@@ -13,7 +13,7 @@ it("responds with a 201 if user sucessfully registered", async () => {
 });
 it("responds with a 400 if you fail to provide a username", async () => {
   await request(app)
-    .post(URL.RegisterURL)
+    .post(URL.RegisterUser)
     .send({
       email: "valid@secondemail.com",
       password: "Strong.password1",
