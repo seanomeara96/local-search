@@ -8,9 +8,7 @@ export const isClientAdmin = function (
 ) {
   let isAdmin: boolean;
   // Set isAdmin to True or False
-  if (isAdmin) {
-    next();
-  }
+  next();
   // authenticates user as a business user
   console.log("is BusinessAdmin");
 };

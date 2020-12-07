@@ -23,13 +23,11 @@ beforeAll(async () => {
   db = new MongoMemoryServer();
   const uri = await db.getUri();
   process.env.CONNECTIONSTRING = uri;
-  console.log(process.env.CONNECTIONSTRING);
 });
 beforeEach(async () => {});
 afterAll(async () => {
   if (db) {
     await db.stop();
   }
-
   // disconnect
 });

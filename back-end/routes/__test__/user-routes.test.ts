@@ -1,16 +1,25 @@
 import request from "supertest";
 import app from "../../app";
-
+import * as URL from "../urls/user-urls";
 it("responds with a 201 if user sucessfully registered", async () => {
-  // stuff goes here
-  /**
-   * await request(app)
-    .post("/")
-    .send({ email: "valid@email.com", password: "Strong.password1" })
+  await request(app)
+    .post(URL.RegisterURL)
+    .send({
+      username: "seanomeara96",
+      email: "valid@email.com",
+      password: "Strong.password1",
+    })
     .expect(201);
-   */
 });
-
+it("responds with a 400 if you fail to provide a username", async () => {
+  await request(app)
+    .post(URL.RegisterURL)
+    .send({
+      email: "valid@secondemail.com",
+      password: "Strong.password1",
+    })
+    .expect(400);
+});
 it("responds with 200 & cookie if user sucessfully logs in", async () => {
   // stuff goes here
 });
