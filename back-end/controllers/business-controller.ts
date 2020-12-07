@@ -6,9 +6,13 @@ export const isClientAdmin = function (
   res: Response,
   next: NextFunction
 ) {
+  let isAdmin: boolean;
+  // Set isAdmin to True or False
+  if (isAdmin) {
+    next();
+  }
   // authenticates user as a business user
   console.log("is BusinessAdmin");
-  next();
 };
 // Authenticates user is owner of a resource
 export const isResourceOwner = function (

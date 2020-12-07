@@ -17,22 +17,19 @@ import request from "supertest";
 /**
  * Not a bad idea to assign a signin function to NodeJs's global object so that it is accessible from all test files
  */
-let mongo: any;
+let db: MongoMemoryServer | undefined;
 
 beforeAll(async () => {
-  console.log(mongo);
-  mongo = new MongoMemoryServer();
-  await mongo.start();
-  console.log(mongo);
-  console.log(mongo.getInstanceInfo());
-  if (mongo.getInstanceInfo()) {
-    const uri = await mongo.getUri();
-  } else {
-    console.log("Doing the same shit");
-  }
+  db = new MongoMemoryServer();
+  const uri = await db.getUri();
+  process.env.CONNECTIONSTRING = uri;
+  console.log(process.env.CONNECTIONSTRING);
 });
 beforeEach(async () => {});
 afterAll(async () => {
-  await mongo.stop();
+  if (db) {
+    await db.stop();
+  }
+
   // disconnect
 });
