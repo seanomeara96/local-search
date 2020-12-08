@@ -123,6 +123,7 @@ User.prototype.register = function () {
     this.cleanUp();
     await this.validate();
     if (!this.errors.length) {
+      console.log("registering user", this.data.username);
       let salt = bcrypt.genSaltSync(10);
       this.data.password = bcrypt.hashSync(this.data.password, salt);
       const newUser = await usersCollection().insertOne(this.data);

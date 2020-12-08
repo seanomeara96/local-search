@@ -7,9 +7,9 @@ router.post(URL.RegisterUser, User.register);
 // logs a user in
 router.post(URL.LoginUser, User.login);
 // checks username availability
-router.post(URL.DoesUsernameExistURL, User.doesUsernameExist);
+router.post(URL.DoesUsernameExist, User.doesUsernameExist);
 // checks email availability
-router.post(URL.DoesEmailExistURL, User.doesEmailExist);
+router.post(URL.DoesEmailExist, User.doesEmailExist);
 // ends user's session
 router.post(URL.LogoutUser, User.mustBeLoggedIn, User.logout);
 export default router;

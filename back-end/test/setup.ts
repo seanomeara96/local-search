@@ -1,6 +1,8 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
+import mongodb, { Collection } from "mongodb";
 import app from "../app";
 import request from "supertest";
+import { isTemplateExpression } from "typescript";
 /**
  * Before all testing is done change the process.env.db_connection_key
  * Assign a new instance of Mongomemoryserver to a global variable
@@ -23,11 +25,21 @@ beforeAll(async () => {
   db = new MongoMemoryServer();
   const uri = await db.getUri();
   process.env.CONNECTIONSTRING = uri;
+  console.log("successful overwrite", process.env.CONNECTIONSTRING);
 });
-beforeEach(async () => {});
-afterAll(async () => {
-  if (db) {
-    await db.stop();
+beforeEach(async () => {
+  console.log("aloha");
+  const client = await mongodb.connect(process.env.CONNECTIONSTRING!, {
+    useUnifiedTopology: true,
+  });
+  const collections = await client.db("Famulis").collections();
+  console.log(collections);
+  let collection: Collection;
+  for (collection of collections) {
+    console.log("collection", collection);
+    await collection.deleteMany({});
   }
-  // disconnect
+});
+afterAll(async () => {
+  await db!.stop();
 });

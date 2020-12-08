@@ -1,7 +1,7 @@
 import mongodb, { MongoClient, Collection } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
-export let client: MongoClient;
+export let client: MongoClient | undefined;
 const connect = function () {
   return new Promise(async (resolve, reject) => {
     try {
@@ -9,7 +9,11 @@ const connect = function () {
         useUnifiedTopology: true,
       });
       console.log("Connected to the database");
-      resolve(client);
+      if (client) {
+        resolve(client);
+      } else {
+        reject("Something went wrong while connecting to the database");
+      }
     } catch (err) {
       console.log("Something went wrong while connecting to the database");
       reject(err);
@@ -18,7 +22,8 @@ const connect = function () {
 };
 
 const createCollection = (collectionName: string) => (): Collection =>
-  client.db("Famulis").collection(collectionName);
+  client!.db("Famulis").collection(collectionName);
+
 export const usersCollection = createCollection("Users");
 export const businessCollection = createCollection("Businesses");
 export const followsCollection = createCollection("Follows");

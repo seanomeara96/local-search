@@ -4,7 +4,7 @@
   "description": "platform for businesses",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --no-cache ",
+    "test": "jest --watchAll --no-cache --runInBand",
     "start": "nodemon --watch ./ -e .ts --exec ts-node app"
   },
   "jest": {

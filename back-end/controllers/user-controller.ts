@@ -3,16 +3,13 @@ import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
 export const register = async function (req: Request, res: Response) {
-  console.log("Registering user.", req.body);
   let user = new User(req.body);
   try {
     let newUser = await user.register();
-    console.log("UserController - Successful user registration:", newUser);
-    res.sendStatus(201);
+    res.status(201).send(newUser);
   } catch (errors) {
-    console.log(errors);
     if (Array.isArray(errors)) {
-      res.json({ errors });
+      res.status(400).json({ errors });
     } else {
       res.sendStatus(500);
     }
@@ -35,10 +32,12 @@ export const login = async function (req: Request, res: Response) {
     res.json({ error });
   }
 };
+
 export const logout = function (req: Request, res: Response) {
   console.log("logging out user", req.body);
   res.json({ message: "Successfully logged out." });
 };
+
 export const doesUsernameExist = async function (req: Request, res: Response) {
   try {
     let usedUsername = await findByUserName(req.body.username);
@@ -51,6 +50,7 @@ export const doesUsernameExist = async function (req: Request, res: Response) {
     res.json({ error });
   }
 };
+
 export const doesEmailExist = async function (req: Request, res: Response) {
   try {
     let usedEmail = await doesUserEmailExist(req.body.email);
@@ -66,6 +66,7 @@ export const doesEmailExist = async function (req: Request, res: Response) {
     res.json({ error });
   }
 };
+
 export const mustBeLoggedIn = function (
   req: Request,
   res: Response,
