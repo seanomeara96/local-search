@@ -1,8 +1,5 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import mongodb, { Collection } from "mongodb";
-import app from "../app";
-import request from "supertest";
-import { isTemplateExpression } from "typescript";
 /**
  * Before all testing is done change the process.env.db_connection_key
  * Assign a new instance of Mongomemoryserver to a global variable
@@ -28,7 +25,6 @@ beforeAll(async () => {
   console.log("successful overwrite", process.env.CONNECTIONSTRING);
 });
 beforeEach(async () => {
-  console.log("aloha");
   const client = await mongodb.connect(process.env.CONNECTIONSTRING!, {
     useUnifiedTopology: true,
   });
